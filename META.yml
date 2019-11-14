@@ -1,0 +1,15 @@
+---
+name: ldiff
+version: 2.1
+author:
+  - 'Wessel Dankers <wsl@uvt.nl>'
+abstract: Generate differences between two LDIF files
+license: perl
+configure_requires:
+  Module::Build: 0.340201
+generated_by: Module::Build version 0.340201
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+resources:
+  license: http://dev.perl.org/licenses/

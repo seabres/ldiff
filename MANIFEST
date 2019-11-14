@@ -1,0 +1,5 @@
+script/ldiff.pl
+MANIFEST
+Build.PL
+Makefile.PL
+META.yml
