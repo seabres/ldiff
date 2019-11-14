@@ -1,11 +1,17 @@
+#!/usr/bin/perl
+
 # $Id: ldiff.pl 32246 2010-08-23 13:51:54Z wsl $
 # $URL: https://infix.uvt.nl/its-id/trunk/sources/ldiff/script/ldiff.pl $
+
+# V2.2    30.6.2016   seabres
+#  - Correct handling of attributes with emtry value on output
+#  - Added interpreter to call it as executable
 
 =encoding utf8
 
 =head1 NAME
 
-C<ldiff> – calculate differences between LDIF files
+C<ldiff> calculate differences between LDIF files
 
 =head1 SYNOPSIS
 
@@ -143,7 +149,9 @@ sub dumpvalue {
 	$prefix = ''
 		unless defined $prefix;
 
-	if($val =~ /^[!-~]([ -~]*[!-~])?$/i) {
+	if($val eq "") {
+		print "$prefix$key:\n" or die $!;
+	} elsif($val =~ /^[!-~]([ -~]*[!-~])?$/i) {
 		print "$prefix$key: $val\n" or die $!;
 	} else {
 		my $base64 = encode_base64($val, '');
